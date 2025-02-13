@@ -13,6 +13,7 @@ model User {
   email         String        @unique
   phone_number  String        @unique
   password_hash String
+  refreshToken  String?       // Store refresh token here
   created_at    DateTime      @default(now())
   updated_at    DateTime      @updatedAt
 }
@@ -28,7 +29,6 @@ model Bus {
   created_at     DateTime      @default(now())
   updated_at     DateTime      @updatedAt
 }
-
 model Route {
   id             String        @id @default(uuid())
   route_name     String
@@ -50,6 +50,7 @@ model Admin {
   name          String
   email         String    @unique
   password_hash String
+  refreshToken  String?       // Store refresh token here
   created_at    DateTime  @default(now())
   updated_at    DateTime  @updatedAt
 }
