@@ -49,7 +49,7 @@ const adminRegister = async (req, res) => {
 const adminLogin = async (req, res) => {
     try {
         const { email, password } = req.body;
-
+        
         // Find admin
         const admin = await prisma.admin.findUnique({
             where: { email }
@@ -88,7 +88,8 @@ const adminLogin = async (req, res) => {
                 id: admin.id,
                 name: admin.name,
                 email: admin.email
-            }
+            },
+            refreshToken
         });
 
     } catch (error) {
@@ -107,7 +108,11 @@ const adminLogout = async (req, res) => {
             data: { refreshToken: null }
         });
 
-        res.status(200).json({ message: "Logged out successfully" });
+        res.clearCookie('refreshToken', {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict'
+        }).status(200).json({ message: "Logged out successfully" });
 
     } catch (error) {
         res.status(500).json({ message: "Error logging out", error: error.message });
@@ -198,7 +203,8 @@ const userLogin = async (req, res) => {
                 id: user.id,
                 name: user.name,
                 email: user.email
-            }
+            },
+            refreshToken
         });
 
     } catch (error) {

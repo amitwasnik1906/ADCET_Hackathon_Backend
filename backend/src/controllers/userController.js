@@ -42,6 +42,8 @@ const getAllRoutes = async (req, res) => {
     }
 }
 
+// get buses by src and dest
+
 module.exports = {
     getAllBuses,
     getAllRoutes

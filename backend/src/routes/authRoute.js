@@ -6,11 +6,11 @@ const checkAdmin = require('../middlewares/checkAdminMiddleware');
 const router = express.Router();
 
 router.post('/admin/register', adminRegister)
-router.get('/admin/login', adminLogin)
+router.post('/admin/login', adminLogin)
 router.get('/admin/logout', checkAdmin, adminLogout)
 
 router.post('/user/register', userRegister)
-router.get('/user/login', userLogin)
+router.post('/user/login', userLogin)
 router.get('/user/logout', checkUser, userLogout)
 
 module.exports = router

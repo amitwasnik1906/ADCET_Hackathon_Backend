@@ -5,7 +5,7 @@
 ### Admin Auth
 - `POST /api/v1/auth/admin/register`  
   Register a new admin
-- `GET /api/v1/auth/admin/login`  
+- `POST /api/v1/auth/admin/login`  
   Admin login
 - `GET /api/v1/auth/admin/logout`  
   Admin logout (Requires admin authentication)
@@ -13,7 +13,7 @@
 ### User Auth
 - `POST /api/v1/auth/user/register`  
   Register a new user
-- `GET /api/v1/auth/user/login`  
+- `POST /api/v1/auth/user/login`  
   User login
 - `GET /api/v1/auth/user/logout`  
   User logout (Requires user authentication)
@@ -58,5 +58,9 @@
 - User middleware validates user sessions
 
 ## Environment Variables
+- `DATABASE_URL` - Postgres Url
 - `JWT_REFRESH_SECRET`: Secret key for token verification
 - `PORT`: Server port (default: 5000)
+
+To run a PostgreSQL container, use the following command:
+- `docker run --name my_postgres -e POSTGRES_USER=myuser -e POSTGRES_PASSWORD=mypassword -e POSTGRES_DB=mydatabase -p 5432:5432 -d postgres`
