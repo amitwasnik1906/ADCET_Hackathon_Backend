@@ -92,79 +92,10 @@ const updatePeopleCount = async (req, res) => {
     }
 }
 
-const getBusDetails = async (req, res) => {
-    try {
-        const { id } = req.params;
-
-        const bus = await prisma.bus.findUnique({
-            where: {
-                id: id
-            },
-            include: {
-                route: true
-            }
-        });
-
-        if (!bus) {
-            return res.status(404).json({
-                success: false,
-                error: "Bus not found"
-            });
-        }
-
-        res.status(200).json({
-            success: true,
-            bus: bus
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: "Failed to get bus details",
-            details: error.message
-        });
-    }
-}
-
-const getRouteDetails = async (req, res) => {
-    try {
-        const { id } = req.params;
-
-        const route = await prisma.route.findUnique({
-            where: {
-                id: id
-            },
-            include: {
-                buses: true
-            }
-        });
-
-        if (!route) {
-            return res.status(404).json({
-                success: false,
-                error: "Route not found"
-            });
-        }
-
-        res.status(200).json({
-            success: true,
-            route: route
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: "Failed to get route details",
-            details: error.message
-        });
-    }
-}
-
 
 
 module.exports = {
     updateLocation,
     updatePeopleCount,
-    getBusDetails,
-    getRouteDetails
+    
 }

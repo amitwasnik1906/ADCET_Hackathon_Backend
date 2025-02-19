@@ -35,11 +35,11 @@ model Route {
   route_name     String
   start_location String
   end_location   String
+  departure_time String
   busId          String?       // Foreign key to Bus (optional)
   bus            Bus?          @relation(fields: [busId], references: [id], onDelete: SetNull) // Defines the relationship
   stops          Json          // Stops stored as JSON : Array of stops: [{ name: String, latitude: Float, longitude: Float }]
   route_polyline String?       // Store the encoded polyline from Google Maps
-  departure_time DateTime
   status         String        @default("inactive") // Can be "active" or "inactive"
   analytics      Analytics[]  
   created_at     DateTime      @default(now()) 
@@ -66,4 +66,3 @@ model Analytics {
   peak_hour               String    // Time with highest passenger count
   date_recorded           DateTime  // Store the date of entry (daily basis)
 }
-

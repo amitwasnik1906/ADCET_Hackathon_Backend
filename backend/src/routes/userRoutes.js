@@ -1,6 +1,5 @@
 const express = require('express');
-const { getAllBuses, getAllRoutes } = require('../controllers/userController');
-const { getBusDetails, getRouteDetails } = require('../controllers/busController');
+const { getAllBuses, getAllRoutes, getBusDetails, getRouteDetails } = require('../controllers/userController');
 
 const router = express.Router();
 
