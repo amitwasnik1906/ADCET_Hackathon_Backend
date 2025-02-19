@@ -14,7 +14,7 @@
 - `POST /api/v1/auth/user/register`  
   Register a new user
 - `POST /api/v1/auth/user/login`  
-  User login
+  User login 
 - `GET /api/v1/auth/user/logout`  
   User logout (Requires user authentication)
 

@@ -5,6 +5,9 @@ import BusDashboardPage from "./pages/BusDashboardPage"
 import RouteDashboardPage from "./pages/RouteDashboardPage";
 import Header from "./components/Header";
 import { getAdminRefreshToken } from "./apiServices";
+import BusDetailsPage from "./pages/BusDetailsPage";
+import RouteDetailsPage from "./pages/RouteDetailsPage";
+import NewRouteFormPage from "./pages/newRouteFormPage";
 
 const Layout = ({ children }) => {
   return (
@@ -24,9 +27,14 @@ function App() {
     <Routes>
       {<Route path="/" element={<Layout><HomePage /></Layout>} />}
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/bus/dashboard" element={<BusDashboardPage />} />
-      <Route path="/route/dashboard" element={<RouteDashboardPage />} />
-      <Route path="/route/new" element={<div></div>} />
+      
+      <Route path="/bus/dashboard" element={<Layout><BusDashboardPage /></Layout>} />
+      <Route path="/route/dashboard" element={<Layout><RouteDashboardPage /></Layout>} />
+
+      <Route path="/bus/:id" element={<Layout> <BusDetailsPage/> </Layout>} />
+      <Route path="/route/:id" element={<Layout> <RouteDetailsPage/> </Layout>} />
+      
+      <Route path="/bus/route-form/:id" element={<Layout> <NewRouteFormPage/> </Layout>} />
     </Routes>
   )
 }

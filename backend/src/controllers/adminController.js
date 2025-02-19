@@ -14,7 +14,7 @@ const prisma = require('../prismaClient')
 const addBus = async (req, res) => {
     try {
         const { bus_number, capacity } = req.body;
-
+        
         // Check if bus number already exists
         const existingBus = await prisma.bus.findUnique({
             where: {
@@ -162,7 +162,7 @@ const addRoute = async (req, res) => {
                 },
                 stops,
                 route_polyline,
-                departure_time: new Date(departure_time),
+                departure_time,
                 status: "inactive" // Default status
             },
             include: {

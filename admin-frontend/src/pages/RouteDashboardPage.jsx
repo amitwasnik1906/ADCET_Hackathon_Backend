@@ -2,7 +2,9 @@ import React from 'react'
 
 function RouteDashboardPage() {
   return (
-    <div>RouteDashboardPage</div>
+    <div>
+      <h1 className="text-2xl font-bold mb-4">All Buses</h1>
+    </div>
   )
 }
 
