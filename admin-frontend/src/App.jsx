@@ -7,7 +7,8 @@ import Header from "./components/Header";
 import { getAdminRefreshToken } from "./apiServices";
 import BusDetailsPage from "./pages/BusDetailsPage";
 import RouteDetailsPage from "./pages/RouteDetailsPage";
-import NewRouteFormPage from "./pages/newRouteFormPage";
+import NewRouteFormPage from "./pages/NewRouteFormPage";
+import AnalyticsPage from "./pages/AnalyticsPage"
 
 const Layout = ({ children }) => {
   return (
@@ -30,6 +31,7 @@ function App() {
       
       <Route path="/bus/dashboard" element={<Layout><BusDashboardPage /></Layout>} />
       <Route path="/route/dashboard" element={<Layout><RouteDashboardPage /></Layout>} />
+      <Route path="/analytics" element={<Layout> <AnalyticsPage/> </Layout>} />
 
       <Route path="/bus/:id" element={<Layout> <BusDetailsPage/> </Layout>} />
       <Route path="/route/:id" element={<Layout> <RouteDetailsPage/> </Layout>} />

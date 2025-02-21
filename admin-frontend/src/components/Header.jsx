@@ -22,7 +22,8 @@ function Header() {
             <Link to="/" className="text-white text-2xl">Bus Sync</Link>
             <div className='flex gap-4'>
                 <Link to="/bus/dashboard" className="text-white hover:underline">Bus Dashboard</Link>
-                <Link to="/route/dashboard" className="text-white hover:underline">Route Dashboard</Link>
+                <Link to="/analytics" className="text-white hover:underline">Analytics</Link>
+                {/* <Link to="/route/dashboard" className="text-white hover:underline">Route Dashboard</Link> */}
             </div>
             <div className="flex gap-4">
 
